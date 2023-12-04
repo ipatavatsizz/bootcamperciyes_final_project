@@ -1,4 +1,14 @@
 {
   "title": "Bon Appetit!",
-  "language": "Dil Türkçe"
+  "subtitle": "Bir numaralı restorant bulucun!",
+  "language": "Dil {}",
+  "loading": "Yükleniyor...",
+  "getting_data": "{} verisi alınıyor",
+  "getting_location_data": "Lokalizasyon verisi alınıyor",
+  "errors": {
+    "unexpected": "Beklenmeyen bir sorunla karşılaşıldı",
+    "something_went_wrong": "Hay aksi! Bir şeyler ters gitti",
+    "location_service_disabled": "Konum servisi kapalı"
+  },
+  "search": "Bir yer ara"
 }

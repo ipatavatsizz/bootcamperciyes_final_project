@@ -1,4 +1,13 @@
 {
   "title": "Bon Appetit!",
-  "language": "Language is English"
+  "subtitle": "Your number #1 restaurant finder for eating!",
+  "language": "Language is {}",
+  "loading": "Loading...",
+  "getting_data": "Getting {} data",
+  "getting_location_data": "Getting location data",
+  "errors": {
+    "unexpected": "An unexpected error ocurred",
+    "something_went_wrong": "Something went wrong"
+  },
+  "search": "Find a place"
 }
