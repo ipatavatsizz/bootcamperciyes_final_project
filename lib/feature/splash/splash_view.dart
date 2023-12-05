@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:bootcamperciyes_final_project/product/constants/application_constant.dart';
-import 'package:bootcamperciyes_final_project/product/constants/locale_keys.g.dart';
-import 'package:bootcamperciyes_final_project/product/constants/navigation_constant.dart';
+import 'package:bootcamperciyes_final_project/product/constant/application_constant.dart';
+import 'package:bootcamperciyes_final_project/product/constant/locale_keys.g.dart';
+import 'package:bootcamperciyes_final_project/product/constant/navigation_constant.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -26,20 +26,32 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AnimatedTextKit(
                 animatedTexts: [
-                  TypewriterAnimatedText(LocaleKeys.title.tr()),
+                  TyperAnimatedText(
+                    LocaleKeys.title.tr(),
+                    textStyle:
+                        Theme.of(context).textTheme.headlineMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                    speed: Duration(milliseconds: 120),
+                  ),
                 ],
                 isRepeatingAnimation: false,
                 onFinished: initialize,
                 totalRepeatCount: 1,
               ),
+              Text(
+                LocaleKeys.subtitle,
+                style: Theme.of(context).textTheme.bodyLarge,
+              ).tr(),
             ],
           ),
         ),
