@@ -1,0 +1,1 @@
+// TODO: genel bir hata şablonu oluştur, image veya resim alsın (widget) ve mesaj ile ayrıntı göstersin.
