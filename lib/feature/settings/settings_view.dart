@@ -1,4 +1,4 @@
-import 'package:bootcamperciyes_final_project/product/widget/navigationbar.dart';
+import 'package:bootcamperciyes_final_project/product/widget/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class SettingsView extends StatefulWidget {
@@ -11,16 +11,16 @@ class SettingsView extends StatefulWidget {
 class _SettingsViewState extends State<SettingsView> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        bottomNavigationBar: ApplicationNavigationBar(),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Settings Page'),
-            ],
-          ),
+    return Scaffold(
+      extendBody: true,
+      resizeToAvoidBottomInset: false,
+      bottomNavigationBar: CustomNavigationBar(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Settings Page'),
+          ],
         ),
       ),
     );
