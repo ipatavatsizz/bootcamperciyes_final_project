@@ -1,7 +1,7 @@
 import 'package:bootcamperciyes_final_project/feature/not_found/not_found_view.dart';
 import 'package:bootcamperciyes_final_project/feature/splash/splash_view.dart';
-import 'package:bootcamperciyes_final_project/product/constants/application_constant.dart';
-import 'package:bootcamperciyes_final_project/product/constants/language_constant.dart';
+import 'package:bootcamperciyes_final_project/product/constant/application_constant.dart';
+import 'package:bootcamperciyes_final_project/product/constant/language_constant.dart';
 import 'package:bootcamperciyes_final_project/product/cubit/places/places_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +11,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await EasyLocalization.ensureInitialized();
 
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
