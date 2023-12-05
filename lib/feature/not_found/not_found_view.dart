@@ -1,4 +1,4 @@
-import 'package:bootcamperciyes_final_project/product/widget/navigationbar.dart';
+import 'package:bootcamperciyes_final_project/product/widget/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class NotFoundView extends StatefulWidget {
@@ -13,7 +13,7 @@ class _NotFoundViewState extends State<NotFoundView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: ApplicationNavigationBar(),
+        bottomNavigationBar: CustomNavigationBar(),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
