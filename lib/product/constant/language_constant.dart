@@ -11,6 +11,8 @@ enum Languages {
   const Languages(this.language, this.country);
 
   Locale toLocale() => Locale(language, country);
+  static Languages fromString(String languageString) =>
+      Languages.values.firstWhere((element) => element.name == languageString);
   void setLanguage(BuildContext context) => context.setLocale(toLocale());
 }
 
