@@ -9,10 +9,10 @@ import 'package:geolocator/geolocator.dart';
 import 'package:googleapis/datastore/v1.dart';
 import 'package:googleapis/places/v1.dart';
 
-enum CubitStatus { initial, location, places, success, failure }
+enum CubitStatus { initial, loading, location, places, success, failure }
 
 @immutable
-class PlacesStates with EquatableMixin {
+class PlaceCubitState with EquatableMixin {
   final double? latitude;
   final double? longitude;
   final double radius;
@@ -21,7 +21,7 @@ class PlacesStates with EquatableMixin {
 
   final String? error;
 
-  PlacesStates({
+  PlaceCubitState({
     this.status = CubitStatus.initial,
     this.latitude,
     this.longitude,
@@ -30,7 +30,7 @@ class PlacesStates with EquatableMixin {
     this.error,
   });
 
-  PlacesStates copyWith({
+  PlaceCubitState copyWith({
     CubitStatus? status,
     LatLng? position,
     double? radius,
@@ -39,7 +39,7 @@ class PlacesStates with EquatableMixin {
     GoogleMapsPlacesV1SearchNearbyResponse? data,
     String? error,
   }) =>
-      PlacesStates(
+      PlaceCubitState(
         status: status ?? this.status,
         latitude: latitude ?? this.latitude,
         longitude: longitude ?? this.longitude,
@@ -52,8 +52,8 @@ class PlacesStates with EquatableMixin {
   List<Object?> get props => [status, latitude, longitude, radius, data, error];
 }
 
-class PlacesCubit extends Cubit<PlacesStates> {
-  PlacesCubit() : super(PlacesStates());
+class PlacesCubit extends Cubit<PlaceCubitState> {
+  PlacesCubit() : super(PlaceCubitState());
 
   Future<void> getLastLocation() async {
     emit(state.copyWith(status: CubitStatus.location));
@@ -95,7 +95,6 @@ class PlacesCubit extends Cubit<PlacesStates> {
 
     try {
       final position = await Geolocator.getCurrentPosition();
-      debugPrint('getLocation success');
       emit(
         state.copyWith(
           status: CubitStatus.success,
