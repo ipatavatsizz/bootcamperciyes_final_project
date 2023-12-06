@@ -3,11 +3,13 @@ import 'package:bootcamperciyes_final_project/feature/home/home_state.dart';
 import 'package:bootcamperciyes_final_project/feature/home/widget/map_controls.dart';
 import 'package:bootcamperciyes_final_project/product/constant/application_constant.dart';
 import 'package:bootcamperciyes_final_project/product/constant/locale_keys.g.dart';
-import 'package:bootcamperciyes_final_project/product/cubit/places/places_cubit.dart';
+import 'package:bootcamperciyes_final_project/product/constant/navigation_constant.dart';
+import 'package:bootcamperciyes_final_project/product/cubit/places_cubit.dart';
 import 'package:bootcamperciyes_final_project/product/widget/custom_appbar.dart';
 import 'package:bootcamperciyes_final_project/product/widget/custom_navigation_bar.dart';
 import 'package:bootcamperciyes_final_project/product/widget/custom_navigation_drawer.dart';
 import 'package:bootcamperciyes_final_project/product/widget/loading_state.dart';
+import 'package:bootcamperciyes_final_project/product/widget/reload_button.dart';
 import 'package:bootcamperciyes_final_project/product/widget/sub_appbar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +35,7 @@ class _HomeViewState extends HomeState {
       extendBody: true,
       bottomNavigationBar: CustomNavigationBar(),
       body: Center(
-        child: BlocConsumer<PlacesCubit, PlacesStates>(
+        child: BlocConsumer<PlacesCubit, PlaceCubitState>(
           listener: (context, state) async {
             if (state.error != null || state.status == CubitStatus.failure) {
               debugPrint('hata geldi!');
@@ -52,8 +54,8 @@ class _HomeViewState extends HomeState {
                 SnackBar(
                   content: Text(
                     state.error?.titleCase ??
-                        LocaleKeys.errors_unexpected.sentenceCase,
-                  ).tr(),
+                        LocaleKeys.errors_unexpected.tr().sentenceCase,
+                  ),
                 ),
               ),
             );
@@ -61,7 +63,7 @@ class _HomeViewState extends HomeState {
               case CubitStatus.location:
                 return LoadingWidget(
                   child:
-                      Text(LocaleKeys.getting_location_data.sentenceCase).tr(),
+                      Text(LocaleKeys.getting_location_data.tr().sentenceCase),
                 );
               case CubitStatus.success:
                 return Stack(
@@ -91,10 +93,7 @@ class _HomeViewState extends HomeState {
                   ],
                 );
               case CubitStatus.failure:
-                return Text(
-                  state.error?.sentenceCase ??
-                      LocaleKeys.errors_unexpected.sentenceCase,
-                ).tr();
+                return ReloadButton(NavigationPages.home);
               default:
                 return LoadingWidget(
                   child: AnimatedTextKit(

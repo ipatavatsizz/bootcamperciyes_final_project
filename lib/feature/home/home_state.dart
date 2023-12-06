@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bootcamperciyes_final_project/feature/home/home_view.dart';
 import 'package:bootcamperciyes_final_project/product/constant/application_constant.dart';
 import 'package:bootcamperciyes_final_project/product/constant/locale_keys.g.dart';
-import 'package:bootcamperciyes_final_project/product/cubit/places/places_cubit.dart';
+import 'package:bootcamperciyes_final_project/product/cubit/places_cubit.dart';
 import 'package:bootcamperciyes_final_project/product/widget/custom_snackbar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,7 @@ abstract class HomeState extends State<HomeView> {
 
   Future<void> onMapCreated(
     maps.GoogleMapController controller,
-    PlacesStates state,
+    PlaceCubitState state,
   ) async {
     if (!mapController.isCompleted) mapController.complete(controller);
     try {
