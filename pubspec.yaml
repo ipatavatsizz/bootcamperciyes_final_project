@@ -25,7 +25,10 @@ dependencies:
   loading_animation_widget: ^1.2.0+4
   country_flags: ^2.2.0
   recase: ^4.1.0
-  google_places_autocomplete_text_field: ^0.1.2
+  hive: ^2.2.3
+  path_provider: ^2.1.1
+  firebase_core: ^2.24.0
+  firebase_auth: ^4.15.0
 
 dev_dependencies:
   flutter_test:
