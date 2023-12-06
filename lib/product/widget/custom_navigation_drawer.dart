@@ -28,6 +28,9 @@ class _CustomNavigationDrawerState extends State<CustomNavigationDrawer>
   Widget build(BuildContext context) {
     return NavigationDrawer(
       selectedIndex: -1,
+      onDestinationSelected: (value) {
+        debugPrint(value.toString());
+      },
       children: [
         NavigationDrawerDestination(
           icon: Icon(Ionicons.person_circle_outline),
