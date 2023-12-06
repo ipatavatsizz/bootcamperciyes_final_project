@@ -1,13 +1,27 @@
 {
   "title": "Bon Appetit!",
   "subtitle": "Your number #1 restaurant finder for eating!",
-  "language": "Language is {}",
+  "language": "Language",
+  "licenses": "Licenses",
   "loading": "Loading...",
   "getting_data": "Getting {} data",
   "getting_location_data": "Getting location data",
+  "yes": "Yes",
+  "no": "No",
+  "unknown": "Unknown",
   "errors": {
     "unexpected": "An unexpected error ocurred",
-    "something_went_wrong": "Something went wrong"
+    "something_went_wrong": "Something went wrong",
+    "location_service_disabled": "Location service is disabled"
   },
-  "search": "Find a place"
+  "search": "Find a place",
+  "search_terms": {
+    "delivery": "Delivery",
+    "rating": "Puan",
+    "nationalPhoneNumber": "Phone"
+  },
+  "select_language": "Select a language",
+  "change_text": "This text will change when application language switched to English",
+  "connection": "Connection established",
+  "no_connection": "No connection"
 }

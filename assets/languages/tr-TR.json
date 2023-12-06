@@ -1,14 +1,27 @@
 {
   "title": "Bon Appetit!",
   "subtitle": "Bir numaralı restorant bulucun!",
-  "language": "Dil {}",
+  "language": "Dil",
+  "licenses": "Lisanslar",
   "loading": "Yükleniyor...",
   "getting_data": "{} verisi alınıyor",
   "getting_location_data": "Lokalizasyon verisi alınıyor",
+  "yes": "Evet",
+  "no": "Hayır",
+  "unknown": "Bilinmiyor",
   "errors": {
     "unexpected": "Beklenmeyen bir sorunla karşılaşıldı",
     "something_went_wrong": "Hay aksi! Bir şeyler ters gitti",
     "location_service_disabled": "Konum servisi kapalı"
   },
-  "search": "Bir yer ara"
+  "search": "Bir yer ara",
+  "search_terms": {
+    "delivery": "Paket",
+    "rating": "Puan",
+    "nationalPhoneNumber": "Telefon"
+  },
+  "select_language": "Bir dil seçin",
+  "change_text": "Bu metin uygulama dili Türkçe'ye geçince değişecek",
+  "connection": "Bağlantı kuruldu",
+  "no_connection": "Bağlantı kurulamadı"
 }
