@@ -5,9 +5,9 @@ import 'package:bootcamperciyes_final_project/product/constant/locale_keys.g.dar
 import 'package:bootcamperciyes_final_project/product/widget/custom_snackbar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:recase/recase.dart';
 
 class MapControls extends StatefulWidget {
   MapControls(this.controller, this.position, {super.key});
@@ -27,15 +27,11 @@ class _MapControlsState extends State<MapControls> {
       await controller.animateCamera(
         CameraUpdate.zoomIn(),
       );
-    } on MissingPluginException catch (_) {
-      // TODO: add retry button
-    } catch (e) {
-      debugPrint('HATA $e');
+    } catch (_) {
       Application.messenger.currentState?.showSnackBar(
         CustomSnackbar(
-          content: Text(
-            LocaleKeys.errors_something_went_wrong,
-          ).tr(),
+          content:
+              Text(LocaleKeys.errors_something_went_wrong.tr().sentenceCase),
         ),
       );
     }
@@ -50,9 +46,8 @@ class _MapControlsState extends State<MapControls> {
     } catch (_) {
       Application.messenger.currentState?.showSnackBar(
         CustomSnackbar(
-          content: Text(
-            LocaleKeys.errors_something_went_wrong,
-          ).tr(),
+          content:
+              Text(LocaleKeys.errors_something_went_wrong.tr().sentenceCase),
         ),
       );
     }
@@ -67,9 +62,8 @@ class _MapControlsState extends State<MapControls> {
     } catch (_) {
       Application.messenger.currentState?.showSnackBar(
         CustomSnackbar(
-          content: Text(
-            LocaleKeys.errors_something_went_wrong,
-          ).tr(),
+          content:
+              Text(LocaleKeys.errors_something_went_wrong.tr().sentenceCase),
         ),
       );
     }
