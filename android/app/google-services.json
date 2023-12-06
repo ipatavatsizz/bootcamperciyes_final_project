@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "722713212461",
+    "project_id": "bootcamperciyes-final",
+    "storage_bucket": "bootcamperciyes-final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722713212461:android:f2fe25203112f803a32aa4",
+        "android_client_info": {
+          "package_name": "com.moonshred.bootcamperciyes_final_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "722713212461-fekhj42remr2sbbnelt7ga27gu5o72qi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkRH9Fb41oyEk80Ji8npSDt51mfBd-UEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "722713212461-fekhj42remr2sbbnelt7ga27gu5o72qi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "722713212461-id8lbdd2bn562ojdrhkqhjmm2gl9319h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.moonshred.bootcamperciyesFinalProject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
