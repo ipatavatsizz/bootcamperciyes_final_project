@@ -20,7 +20,7 @@ class Application {
   static const String googleApiKey = 'AIzaSyArdqYwAhsO_uFMPra9wVG5y-JShCAdaAo';
 
   /// Default Application Language
-  static Languages language = Languages.turkish;
+  static const Languages language = Languages.turkish;
 
   /// Supported Languages
   static const List<Languages> supportedLanguages = Languages.values;
