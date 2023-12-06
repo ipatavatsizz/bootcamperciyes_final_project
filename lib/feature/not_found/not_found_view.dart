@@ -1,3 +1,4 @@
+import 'package:bootcamperciyes_final_project/product/constant/navigation_constant.dart';
 import 'package:bootcamperciyes_final_project/product/widget/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,10 @@ class _NotFoundViewState extends State<NotFoundView> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('Page not found'),
+              TextButton(
+                onPressed: () => NavigationPages.splash.navigate(),
+                child: Text('Restart app'),
+              ),
             ],
           ),
         ),
