@@ -38,8 +38,6 @@ class SearchBox extends StatelessWidget {
   final ValueChanged<String>? onFieldSubmitted;
   final Function(String?)? onSaved;
 
-  bool showPredictions = false;
-
   @override
   Widget build(BuildContext context) {
     final defaultController = controller ?? TextEditingController();
@@ -65,11 +63,13 @@ class SearchBox extends StatelessWidget {
     return Material(
       elevation: elevation,
       shape: shape ?? defaultShape,
-      child: TextField(
+      child: TextFormField(
         enabled: enabled,
         onChanged: onChanged,
         onEditingComplete: onEditingComplete,
         onTap: onTap,
+        onFieldSubmitted: onFieldSubmitted,
+        onSaved: onSaved,
         onTapOutside: onTapOutside,
         autofocus: autofocus,
         controller: defaultController,
