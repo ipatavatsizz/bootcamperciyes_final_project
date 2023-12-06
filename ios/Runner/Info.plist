@@ -54,5 +54,18 @@
 		<string>This app needs access to location when open.</string>
 		<key>NSLocationAlwaysUsageDescription</key>
 		<string>This app needs access to location when in the background.</string>
+		<key>GIDClientID</key>
+		<string>722713212461-id8lbdd2bn562ojdrhkqhjmm2gl9319h.apps.googleusercontent.com</string>
+		<key>CFBundleURLTypes</key>
+		<array>
+			<dict>
+				<key>CFBundleTypeRole</key>
+				<string>Editor</string>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<string>com.googleusercontent.apps.722713212461-id8lbdd2bn562ojdrhkqhjmm2gl9319h</string>
+				</array>
+			</dict>
+		</array>
 	</dict>
 </plist>
