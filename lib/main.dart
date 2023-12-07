@@ -3,6 +3,7 @@ import 'package:bootcamperciyes_final_project/feature/splash/splash_view.dart';
 import 'package:bootcamperciyes_final_project/firebase_options.dart';
 import 'package:bootcamperciyes_final_project/product/constant/application_constant.dart';
 import 'package:bootcamperciyes_final_project/product/constant/language_constant.dart';
+import 'package:bootcamperciyes_final_project/product/cubit/auth_cubit.dart';
 import 'package:bootcamperciyes_final_project/product/cubit/card_cubit.dart';
 import 'package:bootcamperciyes_final_project/product/cubit/language_cubit.dart';
 import 'package:bootcamperciyes_final_project/product/cubit/places_cubit.dart';
@@ -47,6 +48,7 @@ Future<void> main() async {
         BlocProvider<SearchCubit>(create: (context) => SearchCubit()),
         BlocProvider<CardCubit>(create: (context) => CardCubit()),
         BlocProvider<LanguageCubit>(create: (context) => LanguageCubit()),
+        BlocProvider<AuthCubit>(create: (context) => AuthCubit()),
       ],
       child: EasyLocalization(
         path: Application.path.translations,
