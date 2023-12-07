@@ -38,6 +38,17 @@
   ],
   "tasks": [
     {
+      "label": "Generate app icon",
+      "type": "shell",
+      "detail": "Generate app icon using flutter_launcher_icons",
+      "command": "dart run flutter_launcher_icons",
+      "problemMatcher": ["$tsc"],
+      "presentation": {
+        "reveal": "always"
+      },
+      "group": "build"
+    },
+    {
       "detail": "Generate localizations at assets/translations.",
       "label": "Easy Localization",
       "command": "dart run easy_localization:generate",
