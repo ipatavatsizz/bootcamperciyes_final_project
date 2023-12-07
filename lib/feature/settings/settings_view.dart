@@ -3,12 +3,14 @@ import 'package:bootcamperciyes_final_project/product/constant/locale_keys.g.dar
 import 'package:bootcamperciyes_final_project/product/cubit/language_cubit.dart';
 import 'package:bootcamperciyes_final_project/product/widget/custom_appbar.dart';
 import 'package:bootcamperciyes_final_project/product/widget/custom_navigation_bar.dart';
+import 'package:bootcamperciyes_final_project/product/widget/custom_navigation_drawer.dart';
 import 'package:country_flags/country_flags.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:recase/recase.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsView extends StatefulWidget {
   const SettingsView({super.key});
@@ -24,6 +26,7 @@ class _SettingsViewState extends State<SettingsView>
     return Scaffold(
       extendBody: true,
       appBar: CustomAppBar(),
+      endDrawer: CustomNavigationDrawer(),
       resizeToAvoidBottomInset: false,
       bottomNavigationBar: CustomNavigationBar(),
       body: SingleChildScrollView(
@@ -46,6 +49,7 @@ class _SettingsViewState extends State<SettingsView>
                         return Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(height: 10),
                             Text(
@@ -70,6 +74,7 @@ class _SettingsViewState extends State<SettingsView>
                             Flexible(
                               child: Text(
                                 LocaleKeys.change_text.tr().sentenceCase,
+                                textAlign: TextAlign.center,
                               ),
                             ),
                             SizedBox(height: 50),
@@ -125,7 +130,39 @@ class _SettingsViewState extends State<SettingsView>
               trailing: Icon(Ionicons.information_circle_outline),
             ),
             Divider(),
-            ListTile(),
+            ListTile(
+              onTap: () => showDialog(
+                context: context,
+                builder: (context) => SimpleDialog(
+                  contentPadding: EdgeInsets.all(10),
+                  title: Text(LocaleKeys.about.tr()),
+                  children: [
+                    Text(LocaleKeys.description.tr()),
+                    TextButton.icon(
+                      onPressed: () async => launchUrl(
+                        Uri.parse(
+                          'https://github.com/iPatavatsizz/bootcamperciyes_final_project',
+                        ),
+                      ),
+                      label: Text('Github'),
+                      icon: Icon(Ionicons.logo_github),
+                    ),
+                  ],
+                ),
+              ),
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    LocaleKeys.about.tr(),
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ],
+              ),
+              trailing: Icon(Ionicons.information_circle_outline),
+            ),
           ],
         ),
       ),

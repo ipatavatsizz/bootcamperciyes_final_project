@@ -2,8 +2,10 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:bootcamperciyes_final_project/product/constant/application_constant.dart';
 import 'package:bootcamperciyes_final_project/product/constant/locale_keys.g.dart';
 import 'package:bootcamperciyes_final_project/product/constant/navigation_constant.dart';
+import 'package:bootcamperciyes_final_project/product/cubit/auth_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 
 class SplashView extends StatefulWidget {
@@ -15,7 +17,10 @@ class SplashView extends StatefulWidget {
 
 class _SplashViewState extends State<SplashView> {
   Future<void> initialize() async {
-    await Geolocator.requestPermission();
+    Future.wait([
+      Geolocator.requestPermission(),
+      context.read<AuthCubit>().signIn(),
+    ]);
 
     Application.navigation.currentState?.pushReplacement(
       PageRouteBuilder(
@@ -32,6 +37,10 @@ class _SplashViewState extends State<SplashView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              CircleAvatar(
+                radius: 100,
+                child: Image.asset('${Application.path.icons}/app_icon.png'),
+              ),
               AnimatedTextKit(
                 animatedTexts: [
                   TyperAnimatedText(

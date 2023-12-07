@@ -3,6 +3,7 @@ import 'package:bootcamperciyes_final_project/product/cubit/search_cubit.dart';
 import 'package:bootcamperciyes_final_project/product/widget/card_widget.dart';
 import 'package:bootcamperciyes_final_project/product/widget/custom_appbar.dart';
 import 'package:bootcamperciyes_final_project/product/widget/custom_navigation_bar.dart';
+import 'package:bootcamperciyes_final_project/product/widget/custom_navigation_drawer.dart';
 import 'package:bootcamperciyes_final_project/product/widget/loading_state.dart';
 import 'package:bootcamperciyes_final_project/product/widget/search_box.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -32,6 +33,7 @@ class _SearchViewState extends State<SearchView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(),
+      endDrawer: CustomNavigationDrawer(),
       extendBody: true,
       resizeToAvoidBottomInset: false,
       bottomNavigationBar: CustomNavigationBar(),
