@@ -8,9 +8,11 @@ Firstly, I want to mention that when developing this project, I had no idea abou
 
 ## _Available-_ Features
 
-- [x] Offline database and caching data with `hive` [package](https://pub.dev/packages/hive)
+- [x] **Offline database** and caching data with `hive` [package](https://pub.dev/packages/hive)
 
-- [x] Business Logic Component structure for scaling and managing statements professionally with `flutter_bloc` [package](https://pub.dev/packages/flutter_bloc)
+- [x] Firebase Auth Sign & Register **(added)** by using Google Sign In and account based(under development) place saving using `google_sign_in` [package](https://pub.dev/packages/google_sign_in)
+
+- [x] **Business Logic Component structure** for scaling and managing statements professionally with `flutter_bloc` [package](https://pub.dev/packages/flutter_bloc)
 
 - [x] Easy Language switch with `easy_localization` [package](https://pub.dev/packages/easy_localization)
 
@@ -18,7 +20,7 @@ Firstly, I want to mention that when developing this project, I had no idea abou
 
 - [x] Using `googleapis` and `googleapis_auth` to use (new) places api [googleapis](https://pub.dev/packages/googleapis) | [googleapis_auth](https://pub.dev/packages/googleapis_auth)
 
-- [x] Dynamic and beautifully looking application fonts using `google_fonts` [package](https://pub.dev/packages/google_fonts)
+- [x] Dynamically and beautifully looking application fonts using `google_fonts` [package](https://pub.dev/packages/google_fonts)
 
 - [x] Getting location data using `geolocator` [package](https://pub.dev/packages/geolocator)
 
@@ -29,8 +31,6 @@ Firstly, I want to mention that when developing this project, I had no idea abou
 ## _Development-_ Features
 
 - [ ] Search restaurant sharing using `share_plus` [package](https://pub.dev/packages/share_plus)
-
-- [ ] Google Sign and account based place saving using `google_sign_in` [package](https://pub.dev/packages/google_sign_in)
 
 - [ ] Fully animated application, pages, icons, responses etc.
 
