@@ -8,6 +8,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:googleapis/places/v1.dart';
+import 'package:ionicons/ionicons.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget(this.data, {super.key});
@@ -36,7 +38,6 @@ class CardWidget extends StatelessWidget {
         switch (state.status) {
           case CardCubitStatus.success:
             final data = state.data!;
-            debugPrint('${state.distance ?? 'NULL'}');
             // TODO: Route user to home to guide location when tap
             return GestureDetector(
               // onTap: () => context.read<PlacesCubit>(),
@@ -44,8 +45,9 @@ class CardWidget extends StatelessWidget {
                 margin: EdgeInsets.all(10),
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
+                  color: Color(0xFFFFEFE8),
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(),
+                  // border: Border.all(),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,10 +60,40 @@ class CardWidget extends StatelessWidget {
                               .map(
                                 (data) => CachedNetworkImage(
                                   imageUrl: data.photoUri!,
-                                  fit: BoxFit.cover,
-                                  filterQuality: FilterQuality.high,
                                   errorWidget: (context, url, error) =>
-                                      Text(LocaleKeys.no_connection.tr()),
+                                      Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      border: Border.all(),
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Ionicons.alert_outline,
+                                          size: 36,
+                                        ),
+                                        SizedBox(height: 5),
+                                        Text(LocaleKeys.no_connection.tr()),
+                                      ],
+                                    ),
+                                  ),
+                                  imageBuilder: (context, image) => Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      image: DecorationImage(
+                                        image: image,
+                                        fit: BoxFit.cover,
+                                        filterQuality: FilterQuality.high,
+                                      ),
+                                    ),
+                                  ),
+                                  progressIndicatorBuilder:
+                                      (context, url, progress) => LoadingWidget(
+                                    value: progress.progress,
+                                    child: Text(LocaleKeys.loading.tr()),
+                                  ),
                                 ),
                               )
                               .toList(),
@@ -69,25 +101,51 @@ class CardWidget extends StatelessWidget {
                       ),
                     SizedBox(height: 10),
                     if (data.displayName != null)
-                      Center(
-                        child: Text(
-                          data.displayName!.text!,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium
-                              ?.copyWith(fontWeight: FontWeight.bold),
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            icon: Icon(Ionicons.bookmark_outline, size: 28),
+                            onPressed: () {},
+                          ),
+                          Text(
+                            data.displayName!.text!,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(fontWeight: FontWeight.bold),
+                          ),
+                          IconButton(
+                            icon: Icon(Ionicons.share_outline),
+                            onPressed: () {},
+                          ),
+                        ],
                       ),
-                    SizedBox(height: 5),
-                    if (state.distance != null)
-                      Text(state.distance!.toStringAsFixed(1)),
-                    SizedBox(height: 5),
-                    if (data.rating != null)
+                    if (state.distance != null) ...[
+                      SizedBox(height: 5),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Rating',
+                            LocaleKeys.search_terms_distance.tr(),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            '${(state.distance! / 1000).toStringAsFixed(1)} km',
+                          ),
+                        ],
+                      ),
+                    ],
+                    if (data.rating != null) ...[
+                      SizedBox(height: 5),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            LocaleKeys.search_terms_rating.tr(),
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium
@@ -96,8 +154,9 @@ class CardWidget extends StatelessWidget {
                           Text('${data.rating}'),
                         ],
                       ),
-                    SizedBox(height: 5),
-                    if (data.nationalPhoneNumber != null)
+                    ],
+                    if (data.nationalPhoneNumber != null) ...[
+                      SizedBox(height: 5),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -108,9 +167,27 @@ class CardWidget extends StatelessWidget {
                                 .bodyMedium
                                 ?.copyWith(fontWeight: FontWeight.bold),
                           ),
-                          Text('${data.nationalPhoneNumber}'),
+                          TextButton(
+                            child: Text(
+                              '${data.nationalPhoneNumber}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(color: Colors.blue.shade300),
+                            ),
+                            onPressed: () async => await canLaunchUrl(
+                              Uri.parse(
+                                'tel:${data.nationalPhoneNumber?.replaceAll(RegExp(r'\s+|\(+|\)+'), '')}',
+                              ),
+                            )
+                                ? Uri.parse(
+                                    'tel:${data.nationalPhoneNumber?.replaceAll(RegExp(r'\s+|\(+|\)+'), '')}',
+                                  )
+                                : null,
+                          ),
                         ],
                       ),
+                    ],
                   ],
                 ),
               ),
