@@ -1,5 +1,6 @@
 import 'package:bootcamperciyes_final_project/product/constant/application_constant.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:googleapis/places/v1.dart';
@@ -34,7 +35,7 @@ class CardCubitState with EquatableMixin {
         status: status ?? this.status,
         data: data ?? this.data,
         photos: photos ?? this.photos,
-        distance: distance ?? distance,
+        distance: distance ?? this.distance,
         error: error ?? error,
       );
 
@@ -59,6 +60,7 @@ class CardCubit extends Cubit<CardCubitState> {
         state.data!.location!.latitude!,
         state.data!.location!.longitude!,
       );
+      debugPrint('distance value is $distance');
       emit(state.copyWith(status: CardCubitStatus.success, distance: distance));
     } catch (_) {
       emit(state.copyWith(status: CardCubitStatus.failure));
