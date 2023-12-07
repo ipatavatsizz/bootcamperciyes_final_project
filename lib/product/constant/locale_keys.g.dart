@@ -3,6 +3,7 @@
 abstract class  LocaleKeys {
   static const title = 'title';
   static const subtitle = 'subtitle';
+  static const description = 'description';
   static const language = 'language';
   static const licenses = 'licenses';
   static const loading = 'loading';
@@ -18,11 +19,16 @@ abstract class  LocaleKeys {
   static const search = 'search';
   static const search_terms_delivery = 'search_terms.delivery';
   static const search_terms_rating = 'search_terms.rating';
+  static const search_terms_distance = 'search_terms.distance';
   static const search_terms_nationalPhoneNumber = 'search_terms.nationalPhoneNumber';
   static const search_terms = 'search_terms';
   static const select_language = 'select_language';
   static const change_text = 'change_text';
   static const connection = 'connection';
   static const no_connection = 'no_connection';
+  static const logged_as = 'logged_as';
+  static const sign_in = 'sign_in';
+  static const sign_out = 'sign_out';
+  static const about = 'about';
 
 }
