@@ -1,6 +1,7 @@
 {
   "title": "Bon Appetit!",
   "subtitle": "Your number #1 restaurant finder for eating!",
+  "description": "Bon Appetit! is an application for assisting people to find restaurants and food services",
   "language": "Language",
   "licenses": "Licenses",
   "loading": "Loading...",
@@ -17,11 +18,16 @@
   "search": "Find a place",
   "search_terms": {
     "delivery": "Delivery",
-    "rating": "Puan",
+    "rating": "Rating",
+    "distance": "Distance",
     "nationalPhoneNumber": "Phone"
   },
   "select_language": "Select a language",
   "change_text": "This text will change when application language switched to English",
   "connection": "Connection established",
-  "no_connection": "No connection"
+  "no_connection": "No connection",
+  "logged_as": "Logged as,",
+  "sign_in": "Sign in",
+  "sign_out": "Sign out",
+  "about": "About"
 }

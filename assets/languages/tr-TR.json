@@ -1,6 +1,7 @@
 {
   "title": "Bon Appetit!",
   "subtitle": "Bir numaralı restorant bulucun!",
+  "description": "Bon Appetit! İnsanlara yemek restorantları ve servisleri bulmak için yardımcı olan bir uygulamadır.",
   "language": "Dil",
   "licenses": "Lisanslar",
   "loading": "Yükleniyor...",
@@ -18,10 +19,15 @@
   "search_terms": {
     "delivery": "Paket",
     "rating": "Puan",
+    "distance": "Uzaklık",
     "nationalPhoneNumber": "Telefon"
   },
   "select_language": "Bir dil seçin",
   "change_text": "Bu metin uygulama dili Türkçe'ye geçince değişecek",
   "connection": "Bağlantı kuruldu",
-  "no_connection": "Bağlantı kurulamadı"
+  "no_connection": "Bağlantı kurulamadı",
+  "logged_as": "Giriş yapılan,",
+  "sign_in": "Giriş yap",
+  "sign_out": "Çıkış yap",
+  "about": "Hakkında"
 }
