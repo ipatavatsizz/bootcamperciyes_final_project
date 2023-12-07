@@ -37,4 +37,5 @@ class Application {
 
 class ApplicationPath {
   final String translations = 'assets/languages';
+  final String icons = 'assets/icons';
 }
