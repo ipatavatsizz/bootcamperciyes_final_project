@@ -38,7 +38,6 @@ class _HomeViewState extends HomeState {
         child: BlocConsumer<PlacesCubit, PlaceCubitState>(
           listener: (context, state) async {
             if (state.error != null || state.status == CubitStatus.failure) {
-              debugPrint('hata geldi!');
               Application.messenger.currentState?.showSnackBar(
                 SnackBar(
                   content:
