@@ -10,18 +10,14 @@
   "yes": "Yes",
   "no": "No",
   "unknown": "Unknown",
-  "errors": {
-    "unexpected": "An unexpected error ocurred",
-    "something_went_wrong": "Something went wrong",
-    "location_service_disabled": "Location service is disabled"
-  },
+  "unexpected": "An unexpected error ocurred",
+  "something_went_wrong": "Something went wrong",
+  "location_service_disabled": "Location service is disabled",
   "search": "Find a place",
-  "search_terms": {
-    "delivery": "Delivery",
-    "rating": "Rating",
-    "distance": "Distance",
-    "nationalPhoneNumber": "Phone"
-  },
+  "delivery": "Delivery",
+  "rating": "Rating",
+  "distance": "Distance",
+  "phone": "Phone",
   "select_language": "Select a language",
   "change_text": "This text will change when application language switched to English",
   "connection": "Connection established",
@@ -29,5 +25,9 @@
   "logged_as": "Logged as,",
   "sign_in": "Sign in",
   "sign_out": "Sign out",
-  "about": "About"
+  "about": "About",
+  "next": "Next",
+  "previous": "Previous",
+  "forward": "Forward",
+  "back": "Back"
 }
