@@ -1,8 +1,11 @@
 import 'package:bootcamperciyes_final_project/feature/not_found/not_found_view.dart';
-import 'package:bootcamperciyes_final_project/feature/splash/splash_view.dart';
+import 'package:bootcamperciyes_final_project/feature/onboard/onboard_item.dart';
+import 'package:bootcamperciyes_final_project/feature/onboard/onboard_view.dart';
 import 'package:bootcamperciyes_final_project/firebase_options.dart';
-import 'package:bootcamperciyes_final_project/product/constant/application_constant.dart';
+import 'package:bootcamperciyes_final_project/product/constant/color_schemes.g.dart';
 import 'package:bootcamperciyes_final_project/product/constant/language_constant.dart';
+import 'package:bootcamperciyes_final_project/product/constant/locale_keys.g.dart';
+import 'package:bootcamperciyes_final_project/product/core/application.dart';
 import 'package:bootcamperciyes_final_project/product/cubit/auth_cubit.dart';
 import 'package:bootcamperciyes_final_project/product/cubit/card_cubit.dart';
 import 'package:bootcamperciyes_final_project/product/cubit/language_cubit.dart';
@@ -14,7 +17,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:geolocator/geolocator.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -79,15 +82,50 @@ class MainApp extends StatelessWidget {
       onUnknownRoute: (settings) =>
           MaterialPageRoute(builder: (context) => NotFoundView()),
       navigatorKey: Application.navigation,
-      home: SplashView(),
-      theme: ThemeData.light().copyWith(
-        brightness: Brightness.light,
-        appBarTheme: Theme.of(context).appBarTheme.copyWith(
-              elevation: 0,
-              scrolledUnderElevation: 0,
+      home: OnboardView(
+        children: [
+          OnboardItem(
+            onNext: (controller) => controller.nextPage(
+              duration: Duration(milliseconds: 250),
+              curve: Curves.linear,
             ),
-        textTheme: GoogleFonts.openSansTextTheme(),
+            text: [
+              'Merhaba! Görüyorum ki bu ${LocaleKeys.title.tr()} ile ilk deneyimin.',
+              'Hadi, izin ver sana uygulamayı tanıtayım.',
+            ],
+          ),
+          OnboardItem(
+            onDisplay: (controller) async {
+              final permission = await Geolocator.requestPermission();
+              if (permission == LocationPermission.denied ||
+                  permission == LocationPermission.deniedForever) {}
+            },
+            text: [
+              'Öncelikle birkaç adet uygulama izni istemem gerekecek.'
+                  'Bu izinleri sadece uygulama çalışırken kullandığımı unutma.'
+                  'Veri güvenliğin konusunda bana güvenebilirsin! 😊',
+            ],
+          ),
+        ],
       ),
+      theme: ApplicationTheme.light,
+      // darkTheme: ThemeData(
+      //   useMaterial3: true,
+      //   colorScheme: ApplicationTheme.dark,
+      //   textTheme: GoogleFonts.openSansTextTheme(),
+      //   appBarTheme: Theme.of(context).appBarTheme.copyWith(
+      //         elevation: 0,
+      //         scrolledUnderElevation: 0,
+      //       ),
+      // ),
+      // theme: ThemeData.light().copyWith(
+      //   brightness: Brightness.light,
+      //   appBarTheme: Theme.of(context).appBarTheme.copyWith(
+      //         elevation: 0,
+      //         scrolledUnderElevation: 0,
+      //       ),
+      //   textTheme: GoogleFonts.openSansTextTheme(),
+      // ),
       // darkTheme: ThemeData.dark().copyWith(
       //   brightness: Brightness.dark,
       //   textTheme: GoogleFonts.openSansTextTheme(),
