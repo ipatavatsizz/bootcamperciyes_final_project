@@ -1,9 +1,9 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:bootcamperciyes_final_project/feature/home/home_state.dart';
 import 'package:bootcamperciyes_final_project/feature/home/widget/map_controls.dart';
-import 'package:bootcamperciyes_final_project/product/constant/application_constant.dart';
 import 'package:bootcamperciyes_final_project/product/constant/locale_keys.g.dart';
 import 'package:bootcamperciyes_final_project/product/constant/navigation_constant.dart';
+import 'package:bootcamperciyes_final_project/product/core/application.dart';
 import 'package:bootcamperciyes_final_project/product/cubit/places_cubit.dart';
 import 'package:bootcamperciyes_final_project/product/widget/custom_appbar.dart';
 import 'package:bootcamperciyes_final_project/product/widget/custom_navigation_bar.dart';
