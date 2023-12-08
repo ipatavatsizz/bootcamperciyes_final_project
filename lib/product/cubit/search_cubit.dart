@@ -92,6 +92,7 @@ class SearchCubit extends Cubit<SearchCubitState> {
           textQuery: search,
           minRating: minRating,
         ),
+        // TODO: Check how much this costs* (google gave alert about exceeded trial cost value. total 1.66k TL)
         $fields: [
           FieldMask.name,
           FieldMask.id,

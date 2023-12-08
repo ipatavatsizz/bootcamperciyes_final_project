@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCkRH9Fb41oyEk80Ji8npSDt51mfBd-UEU',
-    appId: '1:722713212461:android:f2fe25203112f803a32aa4',
+    appId: '1:722713212461:android:09a4fe8b52a937c0a32aa4',
     messagingSenderId: '722713212461',
     projectId: 'bootcamperciyes-final',
     storageBucket: 'bootcamperciyes-final.appspot.com',
@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '722713212461',
     projectId: 'bootcamperciyes-final',
     storageBucket: 'bootcamperciyes-final.appspot.com',
+    androidClientId: '722713212461-3pijcd85ph37tlg9crdjku78o97kd3sc.apps.googleusercontent.com',
     iosClientId: '722713212461-id8lbdd2bn562ojdrhkqhjmm2gl9319h.apps.googleusercontent.com',
     iosBundleId: 'com.moonshred.bootcamperciyesFinalProject',
   );
