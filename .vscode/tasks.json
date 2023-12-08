@@ -30,7 +30,7 @@
       "default": "locale_keys.g.dart"
     },
     {
-      "description": "Enter (Root) Location",
+      "description": "Enter Keystore Location",
       "id": "keytool_keygen_keystore_location",
       "type": "promptString",
       "default": "\\android\\upload-keystore.jks"
@@ -102,7 +102,7 @@
         "-genkey",
         "-v",
         "-keystore",
-        "${input:keytool_keygen_keystore_location}",
+        "${workspaceFolder}\\${input:keytool_keygen_keystore_location}",
         "-storetype",
         "JKS",
         "-keyalg",
