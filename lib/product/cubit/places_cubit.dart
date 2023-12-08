@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bootcamperciyes_final_project/product/constant/application_constant.dart';
+import 'package:bootcamperciyes_final_project/product/core/application.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

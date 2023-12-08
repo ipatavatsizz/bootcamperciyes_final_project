@@ -1,10 +1,10 @@
 import 'dart:developer';
 
-import 'package:bootcamperciyes_final_project/product/constant/application_constant.dart';
 import 'package:bootcamperciyes_final_project/product/constant/field_mask_constant.dart';
 import 'package:bootcamperciyes_final_project/product/constant/language_constant.dart';
 import 'package:bootcamperciyes_final_project/product/constant/locale_keys.g.dart';
 import 'package:bootcamperciyes_final_project/product/constant/place_types.dart';
+import 'package:bootcamperciyes_final_project/product/core/application.dart';
 import 'package:bootcamperciyes_final_project/product/extension/field_mask_extensions.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';

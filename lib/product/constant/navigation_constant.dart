@@ -3,7 +3,7 @@ import 'package:bootcamperciyes_final_project/feature/not_found/not_found_view.d
 import 'package:bootcamperciyes_final_project/feature/search/search_view.dart';
 import 'package:bootcamperciyes_final_project/feature/settings/settings_view.dart';
 import 'package:bootcamperciyes_final_project/feature/splash/splash_view.dart';
-import 'package:bootcamperciyes_final_project/product/constant/application_constant.dart';
+import 'package:bootcamperciyes_final_project/product/core/application.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 

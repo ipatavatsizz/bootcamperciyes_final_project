@@ -1,5 +1,5 @@
-import 'package:bootcamperciyes_final_project/product/constant/application_constant.dart';
 import 'package:bootcamperciyes_final_project/product/constant/locale_keys.g.dart';
+import 'package:bootcamperciyes_final_project/product/core/application.dart';
 import 'package:bootcamperciyes_final_project/product/cubit/card_cubit.dart';
 import 'package:bootcamperciyes_final_project/product/cubit/places_cubit.dart';
 import 'package:bootcamperciyes_final_project/product/widget/loading_state.dart';
